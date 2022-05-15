@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth.js");
 
 dotenv.config();
+
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
   console.log("connected to db!")
 );
+
+app.use(express.json());
 
 app.use("/api/user", authRoute);
 
