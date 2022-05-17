@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     max: 100,
-    min: 7,
+    min: 5,
   },
   email: {
     type: String,

@@ -5,6 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/post");
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(3000, () => {
   console.log("Server running");

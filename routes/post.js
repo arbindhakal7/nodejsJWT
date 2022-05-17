@@ -1,15 +1,8 @@
-const { description } = require("@hapi/joi/lib/types/alternatives");
-const { route } = require("./auth");
-
 const router = require("express").Router();
+const verify = require("./verifyToken");
 
-router.get("/", (req, res) => {
-  res.json({
-    posts: {
-      title: "My first post",
-      description: "Unauthorized data",
-    },
-  });
+router.get("/", verify, (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;
